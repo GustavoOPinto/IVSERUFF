@@ -1,0 +1,405 @@
+---
+title: "Como publicar artigos de acordo com classificação de periódicos científicos da CAPES"
+subtitle: ""
+author: "Gustavo Oliveira Pinto, Pedro Paulo Guarilha, Carlos Alberto Soares e Amanda de Araujo da Silva"
+institute: ""
+date: "23/05/2019"
+output:
+  xaringan::moon_reader:
+    css: [default, hygge-duke, tamu, tamu-fonts] #Tema da apresentação
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r carrega_pacotes, echo=FALSE, message=FALSE}
+library(RcmdrMisc)
+library(car)
+library(ggplot2)
+library(carData)
+library(sandwich)
+library(stats)
+```
+
+
+```{r carrega_base, echo=FALSE}
+require(RcmdrMisc)
+Periodico_UFF2 <- 
+  readXL("C:/Users/gusta/Dropbox/MESTRADO-DROP/Estatistica Aplicada a Engenharia/Trabalho II/Trabalho II - Revisao Atual/Banco de Dados2.xlsx",
+   rownames=TRUE, header=TRUE, na="", sheet="Publicações - UFF", stringsAsFactors=TRUE)
+
+Periodico_UFF2 <- within(Periodico_UFF2, {
+  Ano <- factor(Ano, labels=c('2013','2014','2015','2016','2017'))
+})
+```
+
+
+class: center
+# *SUMÁRIO*
+.left[
+###1. Introdução
+###2. Objetivo
+###3. Material e Método
+###4. Resultados e Discussão
+###5. Testes de Hipóteses
+###6. Conclusão
+]
+
+---
+class: center
+## *INTRODUÇÃO:*
+
+.left[
+### - Avaliação periódica da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES) da Pós-Graduação brasileira (49 áreas de conhecimento).
+
+### - 5 critérios: o programa, sua proposta e objetivos, seu corpo docente, seu corpo discente e seus egressos, inserção social, e sua **produção intelectual (30% ou 35% da Avaliação CAPES)**.
+
+### - Qualis-Periódicos classifica a produção científica dos programas de pós referente aos artigos publicados em periódicos.
+
+### - Estratos indicativos da qualidade: A1; A2; B1; B2; B3; B4; B5; C - com peso zero.
+]
+
+---
+class: center
+## *INTRODUÇÃO:*
+
+.left[
+### - Programa de Pós-Graduação em Engenharia Civil da Universidade Federal Fluminense - **Engenharias I**.
+
+### -  Áreas de concentração: Gestão, Produção e Meio Ambiente; e Tecnologia da Construção e Estruturas.
+
+### - Relatório de Conferência de Produção Intelectual - **2013 até 2017**.
+
+### - 5 hipóteses formuladas: (1) a área de concentração tem _impacto na quantidade de autores_; as variáveis (2) quantidade de autores, (3) quantidade de docentes, (4) quantidade de discentes, e (5) quantidade de participantes externos, tem _impacto na classificação do periódico onde foi realizada a publicação_.
+]
+
+---
+class: center
+## *OBJETIVO:*
+
+.left[
+### - Entender e analisar o comportamento das métricas relacionadas à produção intelectual utilizadas pela CAPES para **classificação dos cursos de pós-graduação**.
+
+## - Formular um **manual prático sobre como publicar em periódicos**.
+]
+
+---
+class: center
+## *MATERIAL E MÉTODO:*
+
+.left[
+### - Relatórios de Conferência de Produção Intelectual do Programa de Pós-Graduação em Engenharia Civil da UFF - **2013 até 2017**.
+
+### - Base de dados (.xls) elaborada manualmente a partir da emissão dos relatórios (.pdf).
+
+### - **228 publicações e 11 variáveis**: Ano de Publicação, Vinculação ao trabalho de conclusão, Autor, Quantidade de docentes, Quantidade de discentes, Quantidade de participantes externos, Total de autores, Periódico, Classificação CAPES, Idioma e Área de Concentração.
+]
+
+---
+class: center
+
+```{r relatorio_CAPES, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/relatorio_CAPES.PNG") 
+```
+
+---
+class: center
+.pull-left[
+# - **R**.
+]
+
+.pull-right[
+```{r logo_R, out.width = '50%',  echo=FALSE, fig.align = 'left'}
+knitr::include_graphics("https://www.r-project.org/Rlogo.png") 
+```
+]
+--
+
+.pull-left[
+# - **RStudio**.
+]
+
+.pull-right[
+```{r logo_RStudio, out.width = '80%',  echo=FALSE, fig.align = 'center'}
+knitr::include_graphics("https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gray.png") 
+```
+]
+
+--
+
+.left[
+### - Testes de normalidade de Shapiro-Wilk. Testes não paramétricos de Wilcoxon e Kruskal-Wallis para testar as hipóteses formuladas (GC=0,95).
+]
+
+---
+class: center
+## *RESULTADOS E DISCUSSÃO:*
+
+```{r tabela1, out.width = '65%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela1.PNG") 
+```
+
+Média anual = 45,6 publicações, desvio-padrão = 15,22
+--
+
+```{r tabela2, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela2.PNG") 
+```
+
+---
+class: center, middle
+
+```{r tabelas3e4, out.width = '90%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabelas3e4.PNG") 
+```
+
+---
+class: center
+
+```{r tabela5, out.width = '65%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela5.PNG") 
+```
+
+105 autores no total.
+
+11 **(10,5%)** mais ativos estão presentes em **46,1%** do total de publicações.
+---
+class: center, middle
+
+```{r tabela6, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela6.PNG") 
+```
+
+Total de **139 periódicos científicos**.
+
+Tabela apresta os 9 que tem mais de 4 publicações.
+
+International Journal of Civil & Environmental Engineering tem **17 publicações**.
+---
+class: center, middle
+
+```{r tabela7, out.width = '70%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela7.PNG") 
+```
+
+**25,4%** publicações em periódicos com os estratos mais altos: A1, A2, B1 e B2.
+
+**26,8%** classificadas como “C” – peso zero na avaliação CAPES.
+
+**“NP”** correspondem aos periódicos classificados como “Não Periódico pela Área de Avaliação à qual pertence o Programa de Pós-Graduação”.
+
+---
+class: center
+
+```{r tabelas8e9, out.width = '60%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabelas8e9.PNG") 
+```
+
+**84,2%** das publicações havia 1 docente do programa.
+
+**48,2%** das publicações não havia nenhum discente na lista de autores.
+
+---
+class: center
+
+```{r tabelas10e11, out.width = '60%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabelas10e11.PNG") 
+```
+
+**37,3%** das publicações não havia nenhum participante externo.
+
+---
+class: center, middle
+
+### Matriz de correlação entre as variáveis quantitativas
+```{r MatrizCorrelacao, out.width = '60%', echo=FALSE}
+
+knitr::include_graphics("Imagens/MatrirCorrelacao.PNG") 
+```
+
+Correlações negativas ou correlações positivas quase nulas.
+Não há fortes indícios para explicar uma variável através da outra.
+
+---
+class: center
+
+## 1ª Hipótese: Impacto da **área de concentração** na **quantidade de autores**
+
+```{r tabela12, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela12.PNG") 
+```
+
+Número de publicações na área de Gestão, Produção e Meio Ambiente é **mais de cinco vezes maior** que o da área de Tecnologia das Construções e Estruturas.
+
+---
+class: center, middle
+
+```{r histograma, out.width = '60%', echo=FALSE}
+par (cex.lab=1.5)
+with(Periodico_UFF2, Hist(Autores, groups=Area, scale="frequency",
+breaks="Sturges", col="darkgray", xlab=" Quantidade de Autores", ylab="Frequência"))
+```
+
+### Área de concentração **não tem** impacto na quantidade de autores (p-value = 0,1874).
+
+---
+class: center
+
+## 2ª Hipótese: Impacto da **quantidade de autores** da publicação na classificação do periódico
+
+```{r tabela13, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela13.PNG") 
+```
+
+
+---
+class: center
+
+```{r media_autor, out.width = '60%', echo=FALSE}
+par (cex.lab=1.5)
+with(Periodico_UFF2, plotMeans(Autores, CAPES, error.bars="se", connect=TRUE,main="",
+xlab="Classificação CAPES", ylab="Quantidade de Autores"))
+```
+### A quantidade de **autores tem impacto** na classificação do periódico no qual foi realizada a publicação (p-value = 0,01319).
+
+---
+class: center
+
+## 3ª Hipótese: Impacto da **quantidade de docentes**, como autores da publicação, na classificação do periódico
+
+```{r tabela14, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela14.PNG") 
+```
+
+
+---
+class: center
+
+```{r media_docentes, out.width = '60%', echo=FALSE}
+par (cex.lab=1.5)
+with(Periodico_UFF2, plotMeans(Docente, CAPES, error.bars="se", connect=TRUE,main="",
+xlab="Classificação CAPES", ylab="Quantidade de Docentes"))
+```
+
+### A quantidade de **docentes não tem** impacto na classificação do periódico no qual foi realizada a publicação (p-value = 0,5006)
+
+---
+class: center
+
+## 4ª Hipótese: Impacto da **quantidade de discentes**, como autores da publicação, na classificação do periódico
+
+```{r tabela15, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela15.PNG") 
+```
+
+---
+class: center
+
+```{r media_discentes, out.width = '60%', echo=FALSE}
+par (cex.lab=1.5)
+with(Periodico_UFF2, plotMeans(Discente, CAPES, error.bars="se",
+connect=TRUE,main="", xlab="Classificação CAPES", ylab="Quantidade de Discentes"))
+```
+
+### A quantidade de **discentes tem** impacto na classificação do periódico no qual foi realizada a publicação (p-value = 0,003643)
+
+---
+class: center
+
+## 5ª Hipótese: Impacto da **quantidade de participantes externos**, como autores da publicação, na classificação do periódico
+
+```{r tabela16, out.width = '85%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela16.PNG") 
+```
+
+---
+class: center
+
+```{r media_externos, out.width = '60%', echo=FALSE}
+par (cex.lab=1.5)
+with(Periodico_UFF2, plotMeans(Participante.externo, CAPES, error.bars="se",
+connect=TRUE,main="", xlab="Classificação CAPES", ylab="Quantidade de Participantes
+Externos"))
+```
+
+### A quantidade de **participantes externos** tem impacto na classificação do periódico no qual foi realizada a publicação (p-value = 0,02082).
+
+---
+class: center
+
+### Os testes de hipóteses apontaram que 3 variáveis (**quantidade de autores, discentes e participantes externos**), têm impacto sobre a qualidade do estrato onde ocorreu a publicação.
+
+### **Porém**, isso não quer dizer que, por exemplo, quando a quantidade de autores aumenta, o estrato será superior...
+
+--
+
+```{r tabela17, out.width = '75%', echo=FALSE}
+
+knitr::include_graphics("Imagens/Tabela17.PNG") 
+```
+
+### Essa análise precisa ser realizada de acordo com o comportamento de cada uma dessas 3 variáveis.
+
+---
+class: center
+## *CONCLUSÃO:*
+
+.left[
+### - A **área de concentração não teve** impacto sobre a **quantidade de autores** nos artigos, bem como a **quantidade de docentes não teve impacto sobre o estrato**.  
+
+### - A **quantidade de autores** na publicação **impactou** na qualidade do estrato, mas de forma bastante irregular.
+
+### - Enquanto o **aumento** no número de **discentes impactou negativamente** no estrato do periódico, um **aumento** no número de **participantes externos**, na lista de autores da publicação, resultou em periódicos com **melhores classificações**.
+
+### - Apresenta um **manual prático** de como combinar estas variáveis para publicações no estrato desejado.
+
+]
+
+---
+
+## **Sugestões de Trabalhos Futuros:**
+
+###- Elaboração anual do estudo.
+
+## **Aplicações:**
+
+### - Mensuração da evolução dos programas de pós-graduação;
+
+### - Benchmarking com programas semelhantes;
+
+### - Para os discentes: configurações ideais para suas publicações.
+ 
+
+---
+class: center, middle
+## *AGRADECIMENTOS:*
+
+.left[
+### - Professora Luciane Alcoforado e Organização SER
+
+### - Professor Orlando Longo
+
+### - **Professor Steven Dutt Ross**
+]
+
+---
+class: center, middle
+# *OBRIGADO!*
+
+## gustavop@id.uff.br

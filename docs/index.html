@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Como publicar artigos de acordo com classificação de periódicos científicos da CAPES</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Gustavo Oliveira Pinto, Pedro Paulo Guarilha, Carlos Alberto Soares e Amanda de Araujo da Silva" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/hygge-duke.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/tamu.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/tamu-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Como publicar artigos de acordo com classificação de periódicos científicos da CAPES
+### Gustavo Oliveira Pinto, Pedro Paulo Guarilha, Carlos Alberto Soares e Amanda de Araujo da Silva
+### 23/05/2019
+
+---
+
+
+
+
+
+
+
+
+class: center
+# *SUMÁRIO*
+.left[
+###1. Introdução
+###2. Objetivo
+###3. Material e Método
+###4. Resultados e Discussão
+###5. Testes de Hipóteses
+###6. Conclusão
+]
+
+---
+class: center
+## *INTRODUÇÃO:*
+
+.left[
+### - Avaliação periódica da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES) da Pós-Graduação brasileira (49 áreas de conhecimento).
+
+### - 5 critérios: o programa, sua proposta e objetivos, seu corpo docente, seu corpo discente e seus egressos, inserção social, e sua **produção intelectual (30% ou 35% da Avaliação CAPES)**.
+
+### - Qualis-Periódicos classifica a produção científica dos programas de pós referente aos artigos publicados em periódicos.
+
+### - Estratos indicativos da qualidade: A1; A2; B1; B2; B3; B4; B5; C - com peso zero.
+]
+
+---
+class: center
+## *INTRODUÇÃO:*
+
+.left[
+### - Programa de Pós-Graduação em Engenharia Civil da Universidade Federal Fluminense - **Engenharias I**.
+
+### -  Áreas de concentração: Gestão, Produção e Meio Ambiente; e Tecnologia da Construção e Estruturas.
+
+### - Relatório de Conferência de Produção Intelectual - **2013 até 2017**.
+
+### - 5 hipóteses formuladas: (1) a área de concentração tem _impacto na quantidade de autores_; as variáveis (2) quantidade de autores, (3) quantidade de docentes, (4) quantidade de discentes, e (5) quantidade de participantes externos, tem _impacto na classificação do periódico onde foi realizada a publicação_.
+]
+
+---
+class: center
+## *OBJETIVO:*
+
+.left[
+### - Entender e analisar o comportamento das métricas relacionadas à produção intelectual utilizadas pela CAPES para **classificação dos cursos de pós-graduação**.
+
+## - Formular um **manual prático sobre como publicar em periódicos**.
+]
+
+---
+class: center
+## *MATERIAL E MÉTODO:*
+
+.left[
+### - Relatórios de Conferência de Produção Intelectual do Programa de Pós-Graduação em Engenharia Civil da UFF - **2013 até 2017**.
+
+### - Base de dados (.xls) elaborada manualmente a partir da emissão dos relatórios (.pdf).
+
+### - **228 publicações e 11 variáveis**: Ano de Publicação, Vinculação ao trabalho de conclusão, Autor, Quantidade de docentes, Quantidade de discentes, Quantidade de participantes externos, Total de autores, Periódico, Classificação CAPES, Idioma e Área de Concentração.
+]
+
+---
+class: center
+
+&lt;img src="Imagens/relatorio_CAPES.PNG" width="85%" /&gt;
+
+---
+class: center
+.pull-left[
+# - **R**.
+]
+
+.pull-right[
+&lt;img src="https://www.r-project.org/Rlogo.png" width="50%" style="display: block; margin: auto auto auto 0;" /&gt;
+]
+--
+
+.pull-left[
+# - **RStudio**.
+]
+
+.pull-right[
+&lt;img src="https://www.rstudio.com/wp-content/uploads/2014/07/RStudio-Logo-Blue-Gray.png" width="80%" style="display: block; margin: auto;" /&gt;
+]
+
+--
+
+.left[
+### - Testes de normalidade de Shapiro-Wilk. Testes não paramétricos de Wilcoxon e Kruskal-Wallis para testar as hipóteses formuladas (GC=0,95).
+]
+
+---
+class: center
+## *RESULTADOS E DISCUSSÃO:*
+
+&lt;img src="Imagens/Tabela1.PNG" width="65%" /&gt;
+
+Média anual = 45,6 publicações, desvio-padrão = 15,22
+--
+
+&lt;img src="Imagens/Tabela2.PNG" width="85%" /&gt;
+
+---
+class: center, middle
+
+&lt;img src="Imagens/Tabelas3e4.PNG" width="90%" /&gt;
+
+---
+class: center
+
+&lt;img src="Imagens/Tabela5.PNG" width="65%" /&gt;
+
+105 autores no total.
+
+11 **(10,5%)** mais ativos estão presentes em **46,1%** do total de publicações.
+---
+class: center, middle
+
+&lt;img src="Imagens/Tabela6.PNG" width="85%" /&gt;
+
+Total de **139 periódicos científicos**.
+
+Tabela apresta os 9 que tem mais de 4 publicações.
+
+International Journal of Civil &amp; Environmental Engineering tem **17 publicações**.
+---
+class: center, middle
+
+&lt;img src="Imagens/Tabela7.PNG" width="70%" /&gt;
+
+**25,4%** publicações em periódicos com os estratos mais altos: A1, A2, B1 e B2.
+
+**26,8%** classificadas como “C” – peso zero na avaliação CAPES.
+
+**“NP”** correspondem aos periódicos classificados como “Não Periódico pela Área de Avaliação à qual pertence o Programa de Pós-Graduação”.
+
+---
+class: center
+
+&lt;img src="Imagens/Tabelas8e9.PNG" width="60%" /&gt;
+
+**84,2%** das publicações havia 1 docente do programa.
+
+**48,2%** das publicações não havia nenhum discente na lista de autores.
+
+---
+class: center
+
+&lt;img src="Imagens/Tabelas10e11.PNG" width="60%" /&gt;
+
+**37,3%** das publicações não havia nenhum participante externo.
+
+---
+class: center, middle
+
+### Matriz de correlação entre as variáveis quantitativas
+&lt;img src="Imagens/MatrirCorrelacao.PNG" width="60%" /&gt;
+
+Correlações negativas ou correlações positivas quase nulas.
+Não há fortes indícios para explicar uma variável através da outra.
+
+---
+class: center
+
+## 1ª Hipótese: Impacto da **área de concentração** na **quantidade de autores**
+
+&lt;img src="Imagens/Tabela12.PNG" width="85%" /&gt;
+
+Número de publicações na área de Gestão, Produção e Meio Ambiente é **mais de cinco vezes maior** que o da área de Tecnologia das Construções e Estruturas.
+
+---
+class: center, middle
+
+&lt;img src="index_files/figure-html/histograma-1.png" width="60%" /&gt;
+
+### Área de concentração **não tem** impacto na quantidade de autores (p-value = 0,1874).
+
+---
+class: center
+
+## 2ª Hipótese: Impacto da **quantidade de autores** da publicação na classificação do periódico
+
+&lt;img src="Imagens/Tabela13.PNG" width="85%" /&gt;
+
+
+---
+class: center
+
+&lt;img src="index_files/figure-html/media_autor-1.png" width="60%" /&gt;
+### A quantidade de **autores tem impacto** na classificação do periódico no qual foi realizada a publicação (p-value = 0,01319).
+
+---
+class: center
+
+## 3ª Hipótese: Impacto da **quantidade de docentes**, como autores da publicação, na classificação do periódico
+
+&lt;img src="Imagens/Tabela14.PNG" width="85%" /&gt;
+
+
+---
+class: center
+
+&lt;img src="index_files/figure-html/media_docentes-1.png" width="60%" /&gt;
+
+### A quantidade de **docentes não tem** impacto na classificação do periódico no qual foi realizada a publicação (p-value = 0,5006)
+
+---
+class: center
+
+## 4ª Hipótese: Impacto da **quantidade de discentes**, como autores da publicação, na classificação do periódico
+
+&lt;img src="Imagens/Tabela15.PNG" width="85%" /&gt;
+
+---
+class: center
+
+&lt;img src="index_files/figure-html/media_discentes-1.png" width="60%" /&gt;
+
+### A quantidade de **discentes tem** impacto na classificação do periódico no qual foi realizada a publicação (p-value = 0,003643)
+
+---
+class: center
+
+## 5ª Hipótese: Impacto da **quantidade de participantes externos**, como autores da publicação, na classificação do periódico
+
+&lt;img src="Imagens/Tabela16.PNG" width="85%" /&gt;
+
+---
+class: center
+
+&lt;img src="index_files/figure-html/media_externos-1.png" width="60%" /&gt;
+
+### A quantidade de **participantes externos** tem impacto na classificação do periódico no qual foi realizada a publicação (p-value = 0,02082).
+
+---
+class: center
+
+### Os testes de hipóteses apontaram que 3 variáveis (**quantidade de autores, discentes e participantes externos**), têm impacto sobre a qualidade do estrato onde ocorreu a publicação.
+
+### **Porém**, isso não quer dizer que, por exemplo, quando a quantidade de autores aumenta, o estrato será superior...
+
+--
+
+&lt;img src="Imagens/Tabela17.PNG" width="75%" /&gt;
+
+### Essa análise precisa ser realizada de acordo com o comportamento de cada uma dessas 3 variáveis.
+
+---
+class: center
+## *CONCLUSÃO:*
+
+.left[
+### - A **área de concentração não teve** impacto sobre a **quantidade de autores** nos artigos, bem como a **quantidade de docentes não teve impacto sobre o estrato**.  
+
+### - A **quantidade de autores** na publicação **impactou** na qualidade do estrato, mas de forma bastante irregular.
+
+### - Enquanto o **aumento** no número de **discentes impactou negativamente** no estrato do periódico, um **aumento** no número de **participantes externos**, na lista de autores da publicação, resultou em periódicos com **melhores classificações**.
+
+### - Apresenta um **manual prático** de como combinar estas variáveis para publicações no estrato desejado.
+
+]
+
+---
+
+## **Sugestões de Trabalhos Futuros:**
+
+###- Elaboração anual do estudo.
+
+## **Aplicações:**
+
+### - Mensuração da evolução dos programas de pós-graduação;
+
+### - Benchmarking com programas semelhantes;
+
+### - Para os discentes: configurações ideais para suas publicações.
+ 
+
+---
+class: center, middle
+## *AGRADECIMENTOS:*
+
+.left[
+### - Professora Luciane Alcoforado e Organização SER
+
+### - Professor Orlando Longo
+
+### - **Professor Steven Dutt Ross**
+]
+
+---
+class: center, middle
+# *OBRIGADO!*
+
+## gustavop@id.uff.br
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
